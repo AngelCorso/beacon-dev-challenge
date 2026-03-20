@@ -12,7 +12,7 @@ export default async function ProductsPage({params}: Props) {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
-      <h1 className="mb-4 text-4xl font-bold">{`Product ${product.name}`}</h1>
+     <h1 className="mb-4 text-4xl font-bold">{`Product ${product.name}`}</h1>
      <img src={product.image} className=""></img>
      <p>{`$${product.price}`}</p>
      <p>{product.slug}</p>
