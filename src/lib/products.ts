@@ -1,12 +1,16 @@
 import dbConnect from "./db";
 import Products from "../models/products";
 
-export async function getProducts() {
-await dbConnect()
+type SearchParams = {
+  name?: string;
+}
 
-const products = Products.find({})
+export async function getProducts({name}: SearchParams) {
+  await dbConnect()
 
-return products
+  const products = Products.find({name: { $regex: name || "", $options: "i" }})
+
+  return products
 }
 
 export async function getProductBySlug(slug: string) {
